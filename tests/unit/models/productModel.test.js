@@ -6,7 +6,7 @@ const sinon = require('sinon');
 const connection = require('../../../src/models/connection');
 
 describe('Testes unitários da camada Model', function () {
-  it('Recuperando a lista de todos os produtos cadastrados', async function () {
+  it('Recuperando a lista com todos os produtos cadastrados', async function () {
     sinon.stub(connection, 'execute').resolves([listAllProducts]);
     const result = await productModel.showAllProducts();
     expect(result).to.be.deep.equal(listAllProducts);

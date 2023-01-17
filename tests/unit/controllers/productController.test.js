@@ -10,7 +10,7 @@ const { expect } = chai;
 chai.use(sinonChai);
 
 describe('Testes unitários da camada Controller', function () {
-  it('Recuperando a lista de todos os produtos cadastrados', async function () {
+  it('Recuperando a lista com todos os produtos cadastrados', async function () {
     const req = {};
     const res = {};
     res.status = sinon.stub().returns(res);
@@ -21,7 +21,7 @@ describe('Testes unitários da camada Controller', function () {
     expect(res.json).to.have.been.calledWith(listAllProducts);
   });
 
-  it('Recuperando um produto pelo seu ID', async function () {
+  it('Recuperando um produto pelo ID', async function () {
     const req = { params: { id: 1 } };
     const res = {};
     res.status = sinon.stub().returns(res);
@@ -32,7 +32,7 @@ describe('Testes unitários da camada Controller', function () {
     expect(res.json).to.have.been.calledWith(listAllProducts[0]);
   });
 
-  it('Retorna erro caso o ID do produto não exista', async function () {
+  it('Retornar error caso o ID do produto não exista', async function () {
     const req = { params: { id: 999 } };
     const res = {};
     res.status = sinon.stub().returns(res);
@@ -43,7 +43,7 @@ describe('Testes unitários da camada Controller', function () {
     expect(res.json).to.have.been.calledWith({ message: 'Product not found' });
   });
 
-  it('Retorna erro caso o ID seja inválido', async function () {
+  it('Retornar error caso o ID seja inválido', async function () {
     const req = { params: { id: -10 } };
     const res = {};
     res.status = sinon.stub().returns(res);
